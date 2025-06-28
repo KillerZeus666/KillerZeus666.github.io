@@ -76,6 +76,7 @@
 .language-switcher-mobile {
   display: flex;
   align-items: center;
+  margin-right: 10px;
   gap: 6px;
 }
 
@@ -119,6 +120,12 @@
 .desktop {
   display: flex;
 }
+.right-end {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Esto separa los íconos del selector */
+}
+
 
 .social-icons-mobile,
 .language-switcher-mobile {
@@ -169,3 +176,5 @@
     margin-bottom: 10px;
   }
 }
+
+
