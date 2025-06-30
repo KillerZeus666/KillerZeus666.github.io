@@ -1,5 +1,5 @@
-// header.component.ts
 import { Component } from '@angular/core';
+import { LanguageService } from '../services/language.service'; 
 
 @Component({
   selector: 'app-header',
@@ -17,17 +17,23 @@ export class HeaderComponent {
     contacto: 'Contacto'
   };
 
+  constructor(private languageService: LanguageService) {}
+
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
   changeLanguage(event: Event) {
-    // Convertimos el target a <select>
     const selectEl = event.target as HTMLSelectElement;
     const lang = selectEl.value;
 
     this.language = lang;
+    this.languageService.setLanguage(lang);
 
+    this.updateNavTexts(lang);
+  }
+
+  private updateNavTexts(lang: string) {
     if (lang === 'en') {
       this.navTexts = {
         inicio: 'Home',
