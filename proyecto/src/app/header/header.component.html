@@ -1,14 +1,19 @@
 <header class="navbar">
-  <div class="logo-container">
+    <div class="logo-container">
     <img src="https://i.postimg.cc/fTG80Z1n/photo-2025-06-28-10-33-23.jpg" alt="Foto de Katheryn" class="profile-pic" />
-    <div class="logo">
-        <div class="logo fade-in-slide-up">
+
+    <div class="logo-with-name">
+      <img src="https://i.postimg.cc/dVCshRf6/Chat-GPT-Image-Jul-1-2025-11-26-08-AM-removebg-preview.png"
+          alt="Logo KG" class="logo-img" />
+      <div class="name-animated">
         <span class="name1">Katheryn</span>
         <span class="name2">Guasca</span>
-        </div>
+      </div>
     </div>
+
     <button class="menu-toggle" (click)="toggleMenu()">☰</button>
   </div>
+
 
   <nav class="nav-links" [class.open]="menuOpen">
     <a href="#">{{ navTexts.inicio }}</a>

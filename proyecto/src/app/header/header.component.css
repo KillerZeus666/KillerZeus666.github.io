@@ -180,3 +180,70 @@
     transform: translateY(0);
   }
 }
+
+
+.logo-with-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-img {
+  height: 50px; /* ajusta el tamaño si quieres */
+  cursor: pointer;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.logo-with-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.logo-with-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.logo-img {
+  height: 50px;
+  cursor: pointer;
+}
+
+.name-animated {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  font-family: 'PT Serif', serif;
+  color: #3a86ff;
+  font-size: 16px;
+}
+
+/* Colores distintos para los nombres */
+.name2 {
+  color: #7b2cbf;
+}
+
+.logo-with-name:hover .name-animated {
+  opacity: 1;
+  transform: translateX(0);
+}
