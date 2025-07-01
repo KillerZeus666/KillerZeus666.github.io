@@ -1,18 +1,20 @@
 <section id="skills" class="skills-section">
-  <h2 class="section-title">What I do</h2>
+  <h2 class="section-title">{{ texts.programmingSkills }}</h2>
+
   <p class="intro">
     {{ texts.skillsIntro }}
   </p>
 
   <div class="skills-wrapper">
-    <!-- Columna izquierda: barras -->
+    <!-- Columna izquierda: habilidades técnicas -->
     <div class="skills-grid">
-      <h3>{{ texts.programmingSkills }}</h3>
       <div class="skill-row" *ngFor="let skill of skills">
         <div class="skill-icon">
           <img [src]="skill.icon" [alt]="skill.name" />
         </div>
+
         <span class="skill-name">{{ skill.name }}</span>
+
         <div class="progress-container">
           <div class="progress-bar">
             <div
@@ -29,11 +31,14 @@
       </div>
     </div>
 
-    <!-- Columna derecha: texto -->
+    <!-- Columna derecha: otras habilidades -->
     <div class="other-skills">
       <h3>{{ texts.otherSkills }}</h3>
       <div class="skill-block" *ngFor="let s of texts.softSkills">
-        <h4>{{ s.title }}</h4>
+        <div class="skill-block-header">
+          <img class="soft-skill-icon" [src]="s.icon" [alt]="s.title" />
+          <h4>{{ s.title }}</h4>
+        </div>
         <p>{{ s.description }}</p>
       </div>
     </div>
