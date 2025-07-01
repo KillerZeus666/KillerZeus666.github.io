@@ -1,1 +1,41 @@
-<p>skills works!</p>
+<section id="skills" class="skills-section">
+  <h2 class="section-title">What I do</h2>
+  <p class="intro">
+    {{ texts.skillsIntro }}
+  </p>
+
+  <div class="skills-wrapper">
+    <!-- Columna izquierda: barras -->
+    <div class="skills-grid">
+      <h3>{{ texts.programmingSkills }}</h3>
+      <div class="skill-row" *ngFor="let skill of skills">
+        <div class="skill-icon">
+          <img [src]="skill.icon" [alt]="skill.name" />
+        </div>
+        <span class="skill-name">{{ skill.name }}</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div
+              class="progress-fill"
+              [ngStyle]="{
+                width: skill.level + '%',
+                '--percent': skill.level + '%'
+              }"
+            >
+              <span class="progress-text">{{ skill.level }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna derecha: texto -->
+    <div class="other-skills">
+      <h3>{{ texts.otherSkills }}</h3>
+      <div class="skill-block" *ngFor="let s of texts.softSkills">
+        <h4>{{ s.title }}</h4>
+        <p>{{ s.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
