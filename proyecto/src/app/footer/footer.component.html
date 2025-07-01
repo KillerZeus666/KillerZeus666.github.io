@@ -1,16 +1,18 @@
 <footer class="footer">
   <div class="footer-columns">
     <!-- Columna 1: Sobre mí -->
-    <div class="footer-section">
-      <h3><i class="fas fa-user-graduate"></i> Sobre mí</h3>
-      <p>
-        Estudiante de Ingeniería de Sistemas enfocada en desarrollo web y tecnologías emergentes.
-      </p>
+    <div class="footer-section about-column">
+    <h3><i class="fas fa-user-graduate"></i> {{ texts.about }}</h3>
+    <p>{{ texts.aboutDescription }}</p>
     </div>
 
     <!-- Columna 2: Logo con línea decorativa -->
     <div class="footer-center">
-      <img src="https://i.postimg.cc/dVCshRf6/Chat-GPT-Image-Jul-1-2025-11-26-08-AM-removebg-preview.png" alt="KG Logo" class="footer-logo" />
+      <img
+        src="https://i.postimg.cc/dVCshRf6/Chat-GPT-Image-Jul-1-2025-11-26-08-AM-removebg-preview.png"
+        alt="KG Logo"
+        class="footer-logo"
+      />
 
       <div class="decorative-line">
         <span class="dot"></span>
@@ -25,13 +27,13 @@
 
     <!-- Columna 3: Navegación -->
     <div class="footer-section">
-      <h3><i class="fas fa-compass"></i> Navegación</h3>
+      <h3><i class="fas fa-compass"></i> {{ texts.navigation }}</h3>
       <ul>
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#about">Sobre mí</a></li>
-        <li><a href="#skills">Habilidades</a></li>
-        <li><a href="#projects">Proyectos</a></li>
-        <li><a href="#contact">Contacto</a></li>
+        <li><a href="#home">{{ texts.links.home }}</a></li>
+        <li><a href="#about">{{ texts.links.about }}</a></li>
+        <li><a href="#skills">{{ texts.links.skills }}</a></li>
+        <li><a href="#projects">{{ texts.links.projects }}</a></li>
+        <li><a href="#contact">{{ texts.links.contact }}</a></li>
       </ul>
     </div>
   </div>
