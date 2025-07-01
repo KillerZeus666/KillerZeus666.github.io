@@ -4,7 +4,9 @@
   color: #e0e0e0;
   font-family: "PT Serif", serif;
   min-height: 100vh;
+  margin-top: 80px; 
 }
+
 
 .about-content {
   display: flex;

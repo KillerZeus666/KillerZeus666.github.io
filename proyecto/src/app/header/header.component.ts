@@ -14,7 +14,8 @@ export class HeaderComponent {
     inicio: 'Inicio',
     sobreMi: 'Sobre mí',
     proyectos: 'Proyectos',
-    contacto: 'Contacto'
+    contacto: 'Contacto',
+    habilidades: 'Habilidades'
   };
 
   constructor(private languageService: LanguageService) {}
@@ -39,14 +40,16 @@ export class HeaderComponent {
         inicio: 'Home',
         sobreMi: 'About me',
         proyectos: 'Projects',
-        contacto: 'Contact'
+        contacto: 'Contact',
+        habilidades: 'Skills'
       };
     } else {
       this.navTexts = {
         inicio: 'Inicio',
         sobreMi: 'Sobre mí',
         proyectos: 'Proyectos',
-        contacto: 'Contacto'
+        contacto: 'Contacto',
+        habilidades: 'Habilidades'
       };
     }
   }

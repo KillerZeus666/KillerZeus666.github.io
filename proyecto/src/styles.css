@@ -9,3 +9,6 @@ html, body {
   height: 100%;
   width: 100%;
 }
+body, html {
+  background: linear-gradient(145deg, #1a1f38, #252c4a);
+}

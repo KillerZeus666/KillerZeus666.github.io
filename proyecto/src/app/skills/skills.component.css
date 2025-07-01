@@ -1,6 +1,6 @@
 .skills-section {
   background: linear-gradient(145deg, #1a1f38, #252c4a);
-  padding: 3rem 2rem;
+  padding: 2rem 2rem; /* reducido */
   color: #e0e0e0;
   font-family: "PT Serif", serif;
 }
@@ -8,7 +8,7 @@
 .section-title {
   text-align: center;
   color: #3a86ff;
-  font-size: 2.2rem;
+  font-size: 2rem; /* más compacto */
   margin-bottom: 0.5rem;
 }
 
@@ -16,7 +16,7 @@
   text-align: center;
   max-width: 900px;
   margin: 0 auto 2rem auto;
-  font-size: 1rem;
+  font-size: 0.95rem; /* más compacto */
   color: #dcdcdc;
 }
 
@@ -25,13 +25,28 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
+  position: relative;
+}
+
+/* Línea decorativa en medio */
+.skills-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(to bottom, #3a86ff, #7b2cbf);
+  transform: translateX(-1px);
+  opacity: 0.4;
+  border-radius: 2px;
 }
 
 .skills-grid, .other-skills {
   flex: 1 1 45%;
 }
 
-/* BARRAS */
+/* HABILIDADES TÉCNICAS */
 .skill-row {
   display: flex;
   align-items: center;
@@ -42,7 +57,7 @@
 .skill-icon img {
   width: 40px;
   height: 40px;
-  filter: grayscale(0%); /* Iconos a color */
+  filter: grayscale(0%);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -52,8 +67,9 @@
 }
 
 .skill-name {
-  flex: 0 0 100px;
+  flex: 0 0 90px;
   font-weight: bold;
+  font-size: 0.95rem;
   color: #fff;
 }
 
@@ -64,7 +80,7 @@
 .progress-bar {
   background-color: #2a2f4a;
   border-radius: 20px;
-  height: 18px;
+  height: 14px;
   overflow: hidden;
   position: relative;
 }
@@ -83,7 +99,7 @@
 }
 
 .progress-text {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: bold;
 }
 
@@ -96,9 +112,9 @@
   }
 }
 
-/* TEXTO A LA DERECHA */
+/* OTRAS HABILIDADES */
 .other-skills h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #3a86ff;
   margin-bottom: 1.2rem;
 }
@@ -113,7 +129,7 @@
 .soft-skill-icon {
   width: 28px;
   height: 28px;
-  filter: grayscale(0%); /* A color */
+  filter: grayscale(0%);
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
@@ -124,12 +140,12 @@
 
 .skill-block h4 {
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 0.3rem;
 }
 
 .skill-block p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #dcdcdc;
   margin-bottom: 1.2rem;
   line-height: 1.6;
@@ -140,29 +156,12 @@
   .skills-wrapper {
     flex-direction: column;
   }
-}
-.skills-wrapper {
-  position: relative; /* Necesario para posicionar la línea */
-}
 
-.skills-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: linear-gradient(to bottom, #3a86ff, #7b2cbf);
-  transform: translateX(-1px);
-  opacity: 0.4;
-  border-radius: 2px;
-}
-
-@media (max-width: 768px) {
   .skills-wrapper::before {
     display: none;
   }
 }
+
 /* Animación de fade-up */
 @keyframes fadeUp {
   0% {

@@ -1,13 +1,16 @@
 .navbar {
-  font-family: "PT Serif", serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;          /* Asegura que ocupe todo el ancho */
+  z-index: 1000;
+  background-color: #1a2238;
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a2238;
-  padding: 15px 30px;
-  color: #fff;
   flex-wrap: wrap;
-  position: relative;
+  font-family: "PT Serif", serif;
 }
 
 .logo-container {
