@@ -1,0 +1,116 @@
+.contact-section {
+  background: linear-gradient(145deg, #1a1f38, #252c4a);
+  color: #e0e0e0;
+  font-family: 'PT Serif', serif;
+  padding: 4rem 2rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Columna del formulario */
+.contact-form-column {
+  flex: 1;
+}
+
+.contact-title {
+  font-size: 2rem;
+  color: #3a86ff;
+  margin-bottom: 1rem;
+}
+
+/* Formulario */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #1a1f38;
+  border: 1px solid #444;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: white;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #7b2cbf;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(123, 44, 191, 0.4);
+}
+
+.contact-form button {
+  background: #3a86ff;
+  color: white;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #2f6de1;
+}
+
+/* Columna de tarjetas */
+.contact-cards-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Tarjeta individual */
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #1f2645;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border-left: 4px solid #7b2cbf;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.info-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.info-card i {
+  font-size: 1.7rem;
+  color: #7b2cbf;
+  min-width: 2rem;
+}
+
+.info-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #cccccc;
+}

@@ -1,1 +1,40 @@
-<p>contact works!</p>
+<section class="contact-section" id="contact">
+  <div class="contact-container">
+    <!-- Formulario -->
+    <div class="contact-form-column">
+      <h2 class="contact-title">{{ texts.title }}</h2>
+      <form (ngSubmit)="sendMessage()" class="contact-form">
+        <input
+          type="text"
+          [placeholder]="texts.namePlaceholder"
+          [(ngModel)]="contact.name"
+          name="name"
+          required />
+        <input
+          type="email"
+          [placeholder]="texts.emailPlaceholder"
+          [(ngModel)]="contact.email"
+          name="email"
+          required />
+        <textarea
+          [placeholder]="texts.messagePlaceholder"
+          [(ngModel)]="contact.message"
+          name="message"
+          rows="4"
+          required></textarea>
+        <button type="submit">{{ texts.button }}</button>
+      </form>
+    </div>
+
+    <!-- Tarjetas -->
+    <div class="contact-cards-column">
+      <div class="info-card" *ngFor="let card of texts.cards">
+        <i [class]="card.icon"></i>
+        <div>
+          <h4>{{ card.title }}</h4>
+          <p>{{ card.subtitle }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
