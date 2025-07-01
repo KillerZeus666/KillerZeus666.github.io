@@ -1,6 +1,6 @@
 .about-container {
   background: linear-gradient(145deg, #1a1f38, #252c4a);
-  padding: 2rem 2rem;
+  padding: 2rem;
   color: #e0e0e0;
   font-family: "PT Serif", serif;
   min-height: 100vh;
@@ -8,27 +8,29 @@
 
 .about-content {
   display: flex;
-  align-items: flex-start; 
+  align-items: flex-start;
   justify-content: space-between;
   max-width: 1000px;
   margin: 0 auto;
-  gap: 1rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .about-text {
-  flex: 0 1 48%;
+  flex: 1 1 48%;
   text-align: left;
+  min-width: 300px;
 }
 
 .about-image {
-  flex: 0 1 48%;
+  flex: 1 1 48%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 1rem;     /* ⬅ Puedes reducir este valor si quieres menos separación */
-  margin-top: 4.5rem;    /* ✅ Esta línea es nueva: baja un poco la imagen */
+  padding-top: 1rem;
+  margin-top: 4.5rem;
+  min-width: 280px;
 }
-
 
 .image-wrapper {
   position: relative;
@@ -53,14 +55,14 @@
   animation: floatIcon 4s ease-in-out infinite;
 }
 
-.top-icon { top: -40px; left: 50%; transform: translateX(-50%); }
-.right-icon { right: -40px; top: 50%; transform: translateY(-50%); }
+.top-icon    { top: -40px;  left: 50%;  transform: translateX(-50%); }
+.right-icon  { right: -40px; top: 50%;   transform: translateY(-50%); }
 .bottom-icon { bottom: -40px; left: 50%; transform: translateX(-50%); }
-.left-icon { left: -40px; top: 50%; transform: translateY(-50%); }
+.left-icon   { left: -40px; top: 50%;    transform: translateY(-50%); }
 
 @keyframes floatIcon {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
   100% { transform: translateY(0); }
 }
 
@@ -81,8 +83,8 @@ h1 {
 }
 
 @keyframes typing {
-  0% { width: 0; }
-  50% { width: 100%; }
+  0%   { width: 0; }
+  50%  { width: 100%; }
   100% { width: 0; }
 }
 
@@ -157,9 +159,9 @@ p {
 
 .stats-grid {
   display: flex;
-  flex-wrap: nowrap;  /* ✅ Todo en una línea */
+  flex-wrap: nowrap;
   gap: 1rem;
-  overflow-x: auto; /* ✅ Por si el ancho es pequeño */
+  overflow-x: auto;
 }
 
 .stat-item {
@@ -170,7 +172,7 @@ p {
   width: 120px;
   font-size: 0.75rem;
   text-align: center;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
@@ -186,7 +188,7 @@ p {
   display: block;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE: mantener imagen a la derecha */
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;
@@ -194,14 +196,23 @@ p {
     text-align: center;
   }
 
-  .about-text,
-  .about-image {
-    max-width: 100%;
+  .about-text {
+    order: 1;
   }
 
-  .about-text {
-    text-align: center;
-    margin-right: 0;
+  .about-image {
+    order: 2;
+    margin-top: 2rem;
+  }
+
+  .image-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
   }
 
   .buttons {
@@ -213,7 +224,7 @@ p {
   }
 
   .stats-grid {
-    flex-wrap: wrap; /* ✅ Vuelve a varias filas en responsive */
+    flex-wrap: wrap;
     justify-content: center;
   }
 }
