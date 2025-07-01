@@ -1,3 +1,28 @@
-<app-header></app-header>
-<app-about></app-about>
-<app-skills></app-skills>
+<div class="home-container">
+  <div class="tab-selector">
+    <button [class.active]="activeTab === 'personal'" (click)="activeTab = 'personal'">
+      {{ texts.tabs.personal }}
+    </button>
+    <button [class.active]="activeTab === 'education'" (click)="activeTab = 'education'">
+      {{ texts.tabs.education }}
+    </button>
+  </div>
+
+  <div *ngIf="activeTab === 'personal'" class="personal-info">
+    <div class="card">{{ texts.personal.who }}</div>
+    <div class="card">{{ texts.personal.goals }}</div>
+    <div class="card">{{ texts.personal.nationality }}</div>
+    <div class="card">{{ texts.personal.location }}</div>
+    <div class="card">{{ texts.personal.hobbies }}</div>
+  </div>
+
+  <div *ngIf="activeTab === 'education'" class="education-timeline">
+    <div class="timeline-point" *ngFor="let edu of texts.educationTimeline">
+      <div class="year">{{ edu.year }}</div>
+      <div class="details">
+        <h4>{{ edu.title }}</h4>
+        <p>{{ edu.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
