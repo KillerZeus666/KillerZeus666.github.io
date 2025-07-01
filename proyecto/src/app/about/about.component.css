@@ -1,0 +1,219 @@
+.about-container {
+  background: linear-gradient(145deg, #1a1f38, #252c4a);
+  padding: 2rem 2rem;
+  color: #e0e0e0;
+  font-family: "PT Serif", serif;
+  min-height: 100vh;
+}
+
+.about-content {
+  display: flex;
+  align-items: flex-start; 
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.about-text {
+  flex: 0 1 48%;
+  text-align: left;
+}
+
+.about-image {
+  flex: 0 1 48%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 1rem;     /* ⬅ Puedes reducir este valor si quieres menos separación */
+  margin-top: 4.5rem;    /* ✅ Esta línea es nueva: baja un poco la imagen */
+}
+
+
+.image-wrapper {
+  position: relative;
+  width: 240px;
+  height: 240px;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #3a86ff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.icon {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  filter: drop-shadow(0 0 5px #000);
+  animation: floatIcon 4s ease-in-out infinite;
+}
+
+.top-icon { top: -40px; left: 50%; transform: translateX(-50%); }
+.right-icon { right: -40px; top: 50%; transform: translateY(-50%); }
+.bottom-icon { bottom: -40px; left: 50%; transform: translateX(-50%); }
+.left-icon { left: -40px; top: 50%; transform: translateY(-50%); }
+
+@keyframes floatIcon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+h1 {
+  font-size: 2rem;
+  color: #3a86ff;
+  margin-bottom: 0.5rem;
+}
+
+.typing-text {
+  font-size: 1.3rem;
+  color: #7b2cbf;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #7b2cbf;
+  animation: typing 6s steps(40, end) infinite, blink 0.75s step-end infinite;
+  width: 0;
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  50% { width: 100%; }
+  100% { width: 0; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+p {
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: #dcdcdc;
+}
+
+.socials {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.socials span {
+  font-weight: bold;
+  color: #3a86ff;
+}
+
+.socials a {
+  margin-left: 1rem;
+  color: #dcdcdc;
+  transition: color 0.3s;
+}
+
+.socials a:hover {
+  color: #7b2cbf;
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.action-button {
+  flex: 1 1 180px;
+  background-color: transparent;
+  border: 2px solid #3a86ff;
+  color: #3a86ff;
+  font-family: "PT Serif", serif;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #3a86ff;
+  color: #1a1f38;
+}
+
+.action-button i {
+  margin-right: 0.5rem;
+}
+
+.quick-stats {
+  margin-top: 2rem;
+}
+
+.quick-stats h3 {
+  font-size: 1.2rem;
+  color: #3a86ff;
+  margin-bottom: 1rem;
+}
+
+.stats-grid {
+  display: flex;
+  flex-wrap: nowrap;  /* ✅ Todo en una línea */
+  gap: 1rem;
+  overflow-x: auto; /* ✅ Por si el ancho es pequeño */
+}
+
+.stat-item {
+  background-color: #2a2f4a;
+  border: 1px solid #3a86ff;
+  border-radius: 8px;
+  padding: 0.6rem;
+  width: 120px;
+  font-size: 0.75rem;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.stat-item:hover {
+  background-color: #3a86ff33;
+  box-shadow: 0 0 10px rgba(122, 44, 191, 0.4);
+}
+
+.stat-item i {
+  font-size: 1.2rem;
+  color: #7b2cbf;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-text,
+  .about-image {
+    max-width: 100%;
+  }
+
+  .about-text {
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .quick-stats {
+    text-align: center;
+  }
+
+  .stats-grid {
+    flex-wrap: wrap; /* ✅ Vuelve a varias filas en responsive */
+    justify-content: center;
+  }
+}

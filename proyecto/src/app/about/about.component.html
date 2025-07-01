@@ -1,1 +1,55 @@
-<p>about works!</p>
+<div class="about-container">
+  <div class="about-content">
+    <!-- TEXTO A LA IZQUIERDA -->
+    <div class="about-text">
+      <h1>{{ texts.hi }}</h1>
+      <h2 class="typing-text">{{ texts.student }}</h2>
+      <p>{{ texts.description }}</p>
+
+      <div class="socials">
+        <span>{{ texts.follow }}</span>
+        <a href="https://github.com/KillerZeus666" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      </div>
+
+      <div class="buttons">
+        <button class="action-button"><i class="fas fa-folder-open"></i> {{ texts.projects }}</button>
+        <button class="action-button"><i class="fas fa-certificate"></i> {{ texts.certifications }}</button>
+      </div>
+
+      <div class="quick-stats">
+        <h3>{{ texts.statsTitle }}</h3>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <i class="fas fa-code"></i>
+            <p>{{ texts.stat1 }}</p>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-language"></i>
+            <p>{{ texts.stat2 }}</p>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-book"></i>
+            <p>{{ texts.stat3 }}</p>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-laptop-code"></i>
+            <p>{{ texts.stat4 }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMAGEN A LA DERECHA -->
+    <div class="about-image">
+      <div class="image-wrapper">
+        <img src="https://i.postimg.cc/fTG80Z1n/photo-2025-06-28-10-33-23.jpg" alt="Foto de Katheryn" class="profile-pic" />
+        <img src="https://i.postimg.cc/Rh7GDDph/da.png" class="icon top-icon" alt="DA" />
+        <img src="https://i.postimg.cc/Y94sb8wL/Spring.png" class="icon right-icon" alt="Spring" />
+        <img src="https://i.postimg.cc/3RPb6pKS/C.png" class="icon bottom-icon" alt="C" />
+        <img src="https://i.postimg.cc/d0Nf2pgK/ava.png" class="icon left-icon" alt="Java" />
+      </div>
+    </div>
+  </div>
+</div>
