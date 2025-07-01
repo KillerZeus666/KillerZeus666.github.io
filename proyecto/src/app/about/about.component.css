@@ -228,3 +228,23 @@ p {
     justify-content: center;
   }
 }
+
+/* Animación general de entrada */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Para retrasos escalonados */
+.fade-delay-1 { animation-delay: 0.3s; }
+.fade-delay-2 { animation-delay: 0.5s; }
+.fade-delay-3 { animation-delay: 0.7s; }
+.fade-delay-4 { animation-delay: 0.9s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
