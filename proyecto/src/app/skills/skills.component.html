@@ -1,13 +1,13 @@
-<section id="skills" class="skills-section">
-  <h2 class="section-title">{{ texts.programmingSkills }}</h2>
+<section id="skills" class="skills-section fade-up">
+  <h2 class="section-title fade-up fade-delay-1">{{ texts.programmingSkills }}</h2>
 
-  <p class="intro">
+  <p class="intro fade-up fade-delay-2">
     {{ texts.skillsIntro }}
   </p>
 
-  <div class="skills-wrapper">
+  <div class="skills-wrapper fade-up fade-delay-3">
     <!-- Columna izquierda: habilidades técnicas -->
-    <div class="skills-grid">
+    <div class="skills-grid fade-up fade-delay-4">
       <div class="skill-row" *ngFor="let skill of skills">
         <div class="skill-icon">
           <img [src]="skill.icon" [alt]="skill.name" />
@@ -32,7 +32,7 @@
     </div>
 
     <!-- Columna derecha: otras habilidades -->
-    <div class="other-skills">
+    <div class="other-skills fade-up fade-delay-5">
       <h3>{{ texts.otherSkills }}</h3>
       <div class="skill-block" *ngFor="let s of texts.softSkills">
         <div class="skill-block-header">
