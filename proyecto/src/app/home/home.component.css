@@ -151,3 +151,47 @@
     transform: translateY(0);
   }
 }
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 👈 Fuerza 3 columnas */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr); /* 👈 2 columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 600px) {
+  .hobbies-grid {
+    grid-template-columns: 1fr; /* 👈 1 columna en móviles */
+  }
+}
+
+.hobby-card {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid #3a86ff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-4px);
+  background-color: rgba(123, 44, 191, 0.15);
+}
+
+.hobby-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hobby-title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #ffffff;
+}

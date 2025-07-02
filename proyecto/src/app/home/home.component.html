@@ -56,15 +56,32 @@
       </div>
     </div>
 
-    <div *ngIf="activeTab === 'hobbies'" class="tab-content">
-      <ul class="hobbies-list">
-        <li>🎬 Ver series</li>
-        <li>🚴‍♀️ Montar bicicleta</li>
-        <li>🎧 Escuchar música</li>
-        <li>🎮 Jugar videojuegos</li>
-        <li>🚶‍♀️ Salir a caminar</li>
-        <li>🏓 Jugar tenis de mesa</li>
-      </ul>
+   <div *ngIf="activeTab === 'hobbies'" class="tab-content hobbies-grid">
+  <div class="hobby-card">
+    <div class="hobby-icon">🎬</div>
+    <div class="hobby-title">Ver series</div>
+  </div>
+  <div class="hobby-card">
+    <div class="hobby-icon">🚴‍♀️</div>
+    <div class="hobby-title">Montar bicicleta</div>
+  </div>
+  <div class="hobby-card">
+    <div class="hobby-icon">🎧</div>
+    <div class="hobby-title">Escuchar música</div>
+  </div>
+    <div class="hobby-card">
+      <div class="hobby-icon">🎮</div>
+      <div class="hobby-title">Jugar videojuegos</div>
     </div>
+    <div class="hobby-card">
+      <div class="hobby-icon">🚶‍♀️</div>
+      <div class="hobby-title">Salir a caminar</div>
+    </div>
+    <div class="hobby-card">
+      <div class="hobby-icon">🏓</div>
+      <div class="hobby-title">Jugar tenis de mesa</div>
+    </div>
+  </div>
+
   </div>
 </div>
