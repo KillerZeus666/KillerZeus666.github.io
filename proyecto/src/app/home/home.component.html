@@ -1,39 +1,70 @@
-<div class="main-section">
- <dotlottie-player
-  src="https://lottie.host/5003d4a0-b475-4dde-9629-d7bd9c9133b2/qDnqnuP1JM.lottie"
-  background="transparent"
-  speed="1"
-  style="width: 400px; height: 300px"
-  loop
-  autoplay>
-</dotlottie-player>
+<div class="home-wrapper">
+  <div class="home-left">
+    <dotlottie-player
+      src="https://lottie.host/5003d4a0-b475-4dde-9629-d7bd9c9133b2/qDnqnuP1JM.lottie"
+      background="transparent"
+      speed="1"
+      style="width: 280px; height: 280px"
+      loop
+      autoplay>
+    </dotlottie-player>
+  </div>
 
-  <div class="home-container">
-    <div class="tab-selector">
-      <button [class.active]="activeTab === 'personal'" (click)="activeTab = 'personal'">
-        {{ texts.tabs.personal }}
-      </button>
-      <button [class.active]="activeTab === 'education'" (click)="activeTab = 'education'">
-        {{ texts.tabs.education }}
-      </button>
+  <div class="home-right">
+    <h2 class="section-title">
+      <span class="name1">Acerca</span> <span class="name2"> de mí</span>
+    </h2>
+
+    <div class="tab-bar">
+      <div
+        class="tab"
+        [class.active]="activeTab === 'personal'"
+        (click)="activeTab = 'personal'">
+        Información Personal
+      </div>
+      <div
+        class="tab"
+        [class.active]="activeTab === 'education'"
+        (click)="activeTab = 'education'">
+        Educación
+      </div>
+      <div
+        class="tab"
+        [class.active]="activeTab === 'hobbies'"
+        (click)="activeTab = 'hobbies'">
+        Gustos
+      </div>
+      <div class="indicator" [style.left]="getIndicatorPosition()"></div>
     </div>
 
-    <div *ngIf="activeTab === 'personal'" class="personal-info">
-      <div class="card">{{ texts.personal.who }}</div>
-      <div class="card">{{ texts.personal.goals }}</div>
-      <div class="card">{{ texts.personal.nationality }}</div>
-      <div class="card">{{ texts.personal.location }}</div>
-      <div class="card">{{ texts.personal.hobbies }}</div>
+    <div *ngIf="activeTab === 'personal'" class="tab-content">
+      <div class="info-card"><strong>Nombre:</strong> Katheryn Sofia Guasca</div>
+      <div class="info-card"><strong>Fecha de nacimiento:</strong> 26 de marzo de 2006</div>
+      <div class="info-card"><strong>Nacionalidad:</strong> Colombiana</div>
+      <div class="info-card"><strong>Ubicación:</strong> Bogotá, Colombia</div>
+      <div class="info-card"><strong>Teléfono:</strong> 301 3442915</div>
     </div>
 
-    <div *ngIf="activeTab === 'education'" class="education-timeline">
-      <div class="timeline-point" *ngFor="let edu of texts.educationTimeline">
-        <div class="year">{{ edu.year }}</div>
-        <div class="details">
-          <h4>{{ edu.title }}</h4>
-          <p>{{ edu.description }}</p>
+    <div *ngIf="activeTab === 'education'" class="tab-content timeline">
+      <div class="timeline-item" *ngFor="let edu of texts.educationTimeline">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">{{ edu.year }}</div>
+          <div class="timeline-title">{{ edu.title }}</div>
+          <div class="timeline-description">{{ edu.description }}</div>
         </div>
       </div>
+    </div>
+
+    <div *ngIf="activeTab === 'hobbies'" class="tab-content">
+      <ul class="hobbies-list">
+        <li>🎬 Ver series</li>
+        <li>🚴‍♀️ Montar bicicleta</li>
+        <li>🎧 Escuchar música</li>
+        <li>🎮 Jugar videojuegos</li>
+        <li>🚶‍♀️ Salir a caminar</li>
+        <li>🏓 Jugar tenis de mesa</li>
+      </ul>
     </div>
   </div>
 </div>
