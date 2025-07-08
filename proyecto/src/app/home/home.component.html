@@ -12,52 +12,51 @@
 
   <div class="home-right">
     <h2 class="section-title">
-      <span class="name1">Sobre </span> <span class="name2">mí...</span>
+      <span class="name1 ">{{ texts.titlePart1 }}</span>
+      <span class="name2">{{ texts.titlePart2 }}</span>
     </h2>
 
     <div class="tab-bar">
-      <div class="tab" [class.active]="activeTab === 'personal'" (click)="setTab('personal')">Información Personal</div>
-      <div class="tab" [class.active]="activeTab === 'education'" (click)="setTab('education')">Educación y experiencia</div>
-      <div class="tab" [class.active]="activeTab === 'hobbies'" (click)="setTab('hobbies')">Gustos</div>
+      <div class="tab" [class.active]="activeTab === 'personal'" (click)="setTab('personal')">
+        {{ texts.tabs.personal }}
+      </div>
+      <div class="tab" [class.active]="activeTab === 'education'" (click)="setTab('education')">
+        {{ texts.tabs.education }}
+      </div>
+      <div class="tab" [class.active]="activeTab === 'hobbies'" (click)="setTab('hobbies')">
+        {{ texts.tabs.hobbies }}
+      </div>
       <div class="indicator" [style.left]="getIndicatorPosition()"></div>
     </div>
 
     <!-- PERSONAL -->
     <div *ngIf="activeTab === 'personal'" class="tab-content">
-      <div class="info-card"><strong>Nombre:</strong> Katheryn Sofia Guasca</div>
-      <div class="info-card"><strong>Fecha de nacimiento:</strong> 26 de marzo de 2006</div>
-      <div class="info-card"><strong>Nacionalidad:</strong> Colombiana</div>
-      <div class="info-card"><strong>Ubicación:</strong> Bogotá, Colombia</div>
-      <div class="info-card"><strong>Teléfono:</strong> 301 3442915</div>
+      <div class="info-card"><strong>{{ texts.labels.name }}:</strong> {{ texts.personal.name }}</div>
+      <div class="info-card"><strong>{{ texts.labels.birthdate }}:</strong> {{ texts.personal.birthdate }}</div>
+      <div class="info-card"><strong>{{ texts.labels.nationality }}:</strong> {{ texts.personal.nationality }}</div>
+      <div class="info-card"><strong>{{ texts.labels.location }}:</strong> {{ texts.personal.location }}</div>
+      <div class="info-card"><strong>{{ texts.labels.phone }}:</strong> {{ texts.personal.phone }}</div>
+      <div class="info-card"><strong>{{ texts.labels.goals }}:</strong> {{ texts.personal.goals }}</div>
     </div>
 
     <!-- EDUCACIÓN -->
     <div *ngIf="activeTab === 'education'" class="tab-content">
-     <h2 class="timeline-section-title">Experiencia Laboral</h2>
+      <h2 class="timeline-section-title">{{ texts.workTitle }}</h2>
       <section class="timeline-container">
         <div class="timeline-wrapper">
-          <div class="timeline-item left">
+          <div
+            *ngFor="let job of texts.workTimeline; let i = index"
+            class="timeline-item"
+            [class.left]="i % 2 === 0"
+            [class.right]="i % 2 !== 0"
+          >
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <div class="timeline-year">2023 - 2024</div>
-              <div class="timeline-title">Ex Miembro IEEE RAS Javeriana</div>
+              <div class="timeline-year">{{ job.year }}</div>
+              <div class="timeline-title">{{ job.title }}</div>
               <div class="timeline-description">
                 <ul>
-                  <li>Proyectos de robótica y automatización.</li>
-                  <li>Investigación en sistemas autónomos.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item right">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2024 - Actual</div>
-              <div class="timeline-title">Miembro VCloud Javeriana</div>
-              <div class="timeline-description">
-                <ul>
-                  <li>Computación en la nube.</li>
-                  <li>Entornos virtualizados.</li>
+                  <li *ngFor="let desc of job.description">{{ desc }}</li>
                 </ul>
               </div>
             </div>
@@ -65,47 +64,20 @@
         </div>
       </section>
 
-      <h2 class="timeline-section-title">Formación Académica</h2>
+      <h2 class="timeline-section-title">{{ texts.educationTitle }}</h2>
       <section class="timeline-container">
         <div class="timeline-wrapper">
-          <div class="timeline-item left">
+          <div
+            *ngFor="let item of texts.educationTimeline; let i = index"
+            class="timeline-item"
+            [class.left]="i % 2 === 0"
+            [class.right]="i % 2 !== 0"
+          >
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <div class="timeline-year">2008 - 2022</div>
-              <div class="timeline-title">Bachillerato Académico</div>
-              <div class="timeline-description">Colegio Bilingüe Ciudad Montes</div>
-            </div>
-          </div>
-          <div class="timeline-item right">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2017 - 2020</div>
-              <div class="timeline-title">Inglés (Nivel B2)</div>
-              <div class="timeline-description">Instituto Colombo Americano</div>
-            </div>
-          </div>
-          <div class="timeline-item left">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2020 - 2022</div>
-              <div class="timeline-title">Francés (Nivel B2)</div>
-              <div class="timeline-description">Academia de Idiomas Smart</div>
-            </div>
-          </div>
-          <div class="timeline-item right">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2021 - 2023</div>
-              <div class="timeline-title">Técnico en Redes</div>
-              <div class="timeline-description">Centro Andino de Estudios Técnicos</div>
-            </div>
-          </div>
-          <div class="timeline-item left">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2023 - Actualidad</div>
-              <div class="timeline-title">Ingeniería de Sistemas</div>
-              <div class="timeline-description">Pontificia Universidad Javeriana</div>
+              <div class="timeline-year">{{ item.year }}</div>
+              <div class="timeline-title">{{ item.title }}</div>
+              <div class="timeline-description">{{ item.description }}</div>
             </div>
           </div>
         </div>
@@ -114,12 +86,10 @@
 
     <!-- HOBBIES -->
     <div *ngIf="activeTab === 'hobbies'" class="tab-content hobbies-grid">
-      <div class="hobby-card"><div class="hobby-icon">🎬</div><div class="hobby-title">Ver series</div></div>
-      <div class="hobby-card"><div class="hobby-icon">🚴‍♀️</div><div class="hobby-title">Montar bicicleta</div></div>
-      <div class="hobby-card"><div class="hobby-icon">🎧</div><div class="hobby-title">Escuchar música</div></div>
-      <div class="hobby-card"><div class="hobby-icon">🎮</div><div class="hobby-title">Jugar videojuegos</div></div>
-      <div class="hobby-card"><div class="hobby-icon">🚶‍♀️</div><div class="hobby-title">Salir a caminar</div></div>
-      <div class="hobby-card"><div class="hobby-icon">🏓</div><div class="hobby-title">Jugar tenis de mesa</div></div>
+      <div *ngFor="let hobby of texts.hobbies" class="hobby-card">
+        <div class="hobby-icon">{{ hobby.icon }}</div>
+        <div class="hobby-title">{{ hobby.label }}</div>
+      </div>
     </div>
   </div>
 </div>

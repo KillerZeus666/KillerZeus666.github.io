@@ -8,6 +8,12 @@ interface EducationItem {
   description: string;
 }
 
+interface WorkItem {
+  year: string;
+  title: string;
+  description: string[];
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,7 +25,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   activeTab: 'personal' | 'education' | 'hobbies' = 'personal';
 
   texts: {
-    tabs: { personal: string; education: string; hobbies: string },
+    titlePart1: string;
+    titlePart2: string;
+    tabs: { personal: string; education: string; hobbies: string };
+    labels: {
+      name: string;
+      nationality: string;
+      location: string;
+      birthdate: string;
+      phone: string;
+      goals: string;
+    };
     personal: {
       name: string;
       nationality: string;
@@ -27,22 +43,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       birthdate: string;
       phone: string;
       goals: string;
-    },
-    educationTimeline: EducationItem[],
-    hobbies: string[]
-  } = {
-    tabs: { personal: '', education: '', hobbies: '' },
-    personal: {
-      name: '',
-      nationality: '',
-      location: '',
-      birthdate: '',
-      phone: '',
-      goals: ''
-    },
-    educationTimeline: [],
-    hobbies: []
-  };
+    };
+    workTitle: string;
+    workTimeline: WorkItem[];
+    educationTitle: string;
+    educationTimeline: EducationItem[];
+    hobbies: { icon: string; label: string }[];
+  } = {} as any;
 
   constructor(private languageService: LanguageService, private elRef: ElementRef) {}
 
@@ -77,30 +84,32 @@ export class HomeComponent implements OnInit, OnDestroy {
   observeTimelineCards() {
     setTimeout(() => {
       const cards = this.elRef.nativeElement.querySelectorAll('.timeline-content');
-
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('reveal');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
 
       cards.forEach((card: Element) => observer.observe(card));
-    }, 50); // pequeño delay para esperar render
+    }, 50);
   }
 
   updateTexts(lang: string) {
     if (lang === 'en') {
       this.texts = {
-        tabs: {
-          personal: 'Personal Info',
-          education: 'Education',
-          hobbies: 'Hobbies'
+        titlePart1: 'About ',
+        titlePart2: 'me...',
+        tabs: { personal: 'Personal Info', education: 'Education', hobbies: 'Hobbies' },
+        labels: {
+          name: 'Name',
+          nationality: 'Nationality',
+          location: 'Location',
+          birthdate: 'Birthdate',
+          phone: 'Phone',
+          goals: 'Goal'
         },
         personal: {
           name: 'Katheryn Sofia Guasca',
@@ -110,27 +119,48 @@ export class HomeComponent implements OnInit, OnDestroy {
           phone: '3013442915',
           goals: 'To develop creative and efficient technological solutions, focused on artificial intelligence and high-quality software.'
         },
+        workTitle: 'Work Experience',
+        workTimeline: [
+          {
+            year: '2023 - 2024',
+            title: 'Former Member IEEE RAS Javeriana',
+            description: ['Robotics and automation projects.', 'Research on autonomous systems.']
+          },
+          {
+            year: '2024 - Present',
+            title: 'Member of VCloud Javeriana',
+            description: ['Cloud computing.', 'Virtualized environments.']
+          }
+        ],
+        educationTitle: 'Academic Background',
         educationTimeline: [
-          { year: 'Until 2022', title: 'High School', description: 'Completed secondary education' },
-          { year: '2018 - 2021', title: 'English B2', description: 'Colombo Americano' },
-          { year: '2021 - 2022', title: 'French B2', description: 'Smart Academy' },
+          { year: '2008 - 2022', title: 'High School', description: 'Colegio Bilingüe Ciudad Montes' },
+          { year: '2017 - 2020', title: 'English (B2)', description: 'Instituto Colombo Americano' },
+          { year: '2020 - 2022', title: 'French (B2)', description: 'Academia de Idiomas Smart' },
+          { year: '2021 - 2023', title: 'Networking Technician', description: 'Centro Andino de Estudios Técnicos' },
           { year: '2023 - Present', title: 'Systems Engineering', description: 'Pontificia Universidad Javeriana' }
         ],
         hobbies: [
-          'Watching series',
-          'Riding bike',
-          'Listening to music',
-          'Playing video games',
-          'Walking',
-          'Playing table tennis'
+          { icon: '🎬', label: 'Watching series' },
+          { icon: '🚴‍♀️', label: 'Riding a bike' },
+          { icon: '🎧', label: 'Listening to music' },
+          { icon: '🎮', label: 'Playing video games' },
+          { icon: '🚶‍♀️', label: 'Walking' },
+          { icon: '🏓', label: 'Table tennis' }
         ]
       };
     } else {
       this.texts = {
-        tabs: {
-          personal: 'Información Personal',
-          education: 'Educación',
-          hobbies: 'Gustos'
+        titlePart1: 'Sobre ',
+        titlePart2: 'mí...',
+        tabs: { personal: 'Información Personal', education: 'Educación', hobbies: 'Gustos' },
+        labels: {
+          name: 'Nombre',
+          nationality: 'Nacionalidad',
+          location: 'Ubicación',
+          birthdate: 'Fecha de nacimiento',
+          phone: 'Teléfono',
+          goals: 'Objetivo'
         },
         personal: {
           name: 'Katheryn Sofia Guasca',
@@ -140,19 +170,34 @@ export class HomeComponent implements OnInit, OnDestroy {
           phone: '3013442915',
           goals: 'Desarrollar soluciones tecnológicas creativas y eficientes, enfocadas en inteligencia artificial y software de calidad.'
         },
+        workTitle: 'Experiencia Laboral',
+        workTimeline: [
+          {
+            year: '2023 - 2024',
+            title: 'Ex Miembro IEEE RAS Javeriana',
+            description: ['Proyectos de robótica y automatización.', 'Investigación en sistemas autónomos.']
+          },
+          {
+            year: '2024 - Actual',
+            title: 'Miembro VCloud Javeriana',
+            description: ['Computación en la nube.', 'Entornos virtualizados.']
+          }
+        ],
+        educationTitle: 'Formación Académica',
         educationTimeline: [
-          { year: 'Hasta 2022', title: 'Bachillerato', description: 'Educación secundaria completa' },
-          { year: '2018 - 2021', title: 'Inglés B2', description: 'Colombo Americano' },
-          { year: '2021 - 2022', title: 'Francés B2', description: 'Academia Smart' },
-          { year: '2023 - Actual', title: 'Ingeniería de Sistemas', description: 'Pontificia Universidad Javeriana' }
+          { year: '2008 - 2022', title: 'Bachillerato Académico', description: 'Colegio Bilingüe Ciudad Montes' },
+          { year: '2017 - 2020', title: 'Inglés (Nivel B2)', description: 'Instituto Colombo Americano' },
+          { year: '2020 - 2022', title: 'Francés (Nivel B2)', description: 'Academia de Idiomas Smart' },
+          { year: '2021 - 2023', title: 'Técnico en Redes', description: 'Centro Andino de Estudios Técnicos' },
+          { year: '2023 - Actualidad', title: 'Ingeniería de Sistemas', description: 'Pontificia Universidad Javeriana' }
         ],
         hobbies: [
-          'Ver series',
-          'Montar bicicleta',
-          'Escuchar música',
-          'Jugar videojuegos',
-          'Salir a caminar',
-          'Jugar tenis de mesa'
+          { icon: '🎬', label: 'Ver series' },
+          { icon: '🚴‍♀️', label: 'Montar bicicleta' },
+          { icon: '🎧', label: 'Escuchar música' },
+          { icon: '🎮', label: 'Jugar videojuegos' },
+          { icon: '🚶‍♀️', label: 'Salir a caminar' },
+          { icon: '🏓', label: 'Jugar tenis de mesa' }
         ]
       };
     }
