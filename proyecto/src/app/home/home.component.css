@@ -260,16 +260,20 @@
   margin-bottom: 0.2rem;
 }
 
-/* RESPONSIVE */
 @media screen and (max-width: 768px) {
+  .timeline-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .timeline-container::before {
-    left: 1.2rem;
+    left: 1.2rem; /* Línea alineada a la izquierda */
     transform: none;
   }
 
   .timeline-dot {
-    left: 1.2rem;
-    top: 0;
+    left: 1.2rem; /* Punto alineado con la línea */
+    top: 1rem;
     transform: translate(-50%, -50%);
   }
 
@@ -280,10 +284,12 @@
   }
 
   .timeline-content {
-    width: 100%;
-    margin-left: 2.5rem;
+    width: 85%;            /* 👈 Tarjetas más pequeñas */
+    margin-left: 2.5rem;   /* 👈 Separación desde la línea */
+    margin-top: 1.5rem;
     border-left: 3px solid #3a86ff;
     border-right: none;
+    padding: 0.8rem;       /* 👈 Padding reducido para móvil */
   }
 
   .timeline-item.right .timeline-content {
