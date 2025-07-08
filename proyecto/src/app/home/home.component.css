@@ -87,49 +87,6 @@
   border-radius: 5px;
 }
 
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding-left: 1rem;
-  border-left: 2px solid #3a86ff;
-  position: relative;
-}
-
-.timeline-item {
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -10px;
-  top: 5px;
-  width: 12px;
-  height: 12px;
-  background-color: #7b2cbf;
-  border-radius: 50%;
-}
-
-.timeline-content {
-  padding-left: 0.5rem;
-}
-
-.timeline-year {
-  font-weight: bold;
-  color: #3a86ff;
-}
-
-.timeline-title {
-  font-size: 1.1rem;
-  margin-top: 0.3rem;
-}
-
-.timeline-description {
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
-
 .hobbies-list {
   list-style: none;
   padding-left: 1rem;
@@ -194,4 +151,101 @@
   font-weight: 500;
   font-size: 1rem;
   color: #ffffff;
+}
+/* CONTENEDOR DE EDUCACIÓN Y EXPERIENCIA */
+.tab-content {
+  animation: fadeIn 0.4s ease-in;
+}
+
+.timeline-section-title {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  border-left: 4px solid #7b2cbf;
+  padding-left: 0.7rem;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background-color: #7b2cbf;
+  border: 3px solid #1a1f38;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #3a86ff;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #3a86ff;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  color: #e0e0e0;
+  transition: background 0.3s ease;
+}
+
+.timeline-content:hover {
+  background: rgba(123, 44, 191, 0.12);
+}
+
+.timeline-year {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #3a86ff;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-title {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-description {
+  font-size: 0.95rem;
+  color: #d0d0d0;
+}
+
+.timeline-description ul {
+  margin: 0.3rem 0 0 1.2rem;
+  padding-left: 0;
+  list-style-type: disc;
+}
+
+.timeline-description li {
+  margin-bottom: 0.2rem;
+}
+
+/* ADAPTACIÓN RESPONSIVE */
+@media (max-width: 600px) {
+  .timeline-section-title {
+    font-size: 1.2rem;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+  }
+
+  .timeline-content {
+    padding: 0.7rem 0.9rem;
+  }
+
+  .timeline-year {
+    font-size: 0.85rem;
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    top: 6px;
+  }
 }
