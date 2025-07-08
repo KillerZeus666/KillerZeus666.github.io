@@ -224,13 +224,16 @@
   left: 50%;
   top: 1.2rem;
   transform: translate(-50%, -50%);
-  width: 16px;
-  height: 16px;
-  background-color: #7b2cbf;
-  border: 4px solid #1a1f38;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle at center, #7b2cbf 0%, #3a86ff 100%);
+  border: 3px solid #ffffff;
   border-radius: 50%;
+  box-shadow: 0 0 8px rgba(123, 44, 191, 0.6);
   z-index: 3;
+  animation: pulseDot 1.5s infinite ease-in-out;
 }
+
 
 .timeline-year {
   font-size: 1rem;
@@ -296,5 +299,19 @@
     margin-left: 2.5rem;
     border-left: 3px solid #3a86ff;
     border-right: none;
+  }
+}
+@keyframes pulseDot {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 8px rgba(123, 44, 191, 0.6);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 12px rgba(123, 44, 191, 0.8);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 8px rgba(123, 44, 191, 0.6);
   }
 }
