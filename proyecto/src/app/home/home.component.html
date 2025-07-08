@@ -16,9 +16,9 @@
     </h2>
 
     <div class="tab-bar">
-      <div class="tab" [class.active]="activeTab === 'personal'" (click)="activeTab = 'personal'">Información Personal</div>
-      <div class="tab" [class.active]="activeTab === 'education'" (click)="activeTab = 'education'">Educación y experiencia</div>
-      <div class="tab" [class.active]="activeTab === 'hobbies'" (click)="activeTab = 'hobbies'">Gustos</div>
+      <div class="tab" [class.active]="activeTab === 'personal'" (click)="setTab('personal')">Información Personal</div>
+      <div class="tab" [class.active]="activeTab === 'education'" (click)="setTab('education')">Educación y experiencia</div>
+      <div class="tab" [class.active]="activeTab === 'hobbies'" (click)="setTab('hobbies')">Gustos</div>
       <div class="indicator" [style.left]="getIndicatorPosition()"></div>
     </div>
 
@@ -66,7 +66,6 @@
       </section>
 
       <h2 class="timeline-section-title">Formación Académica</h2>
-
       <section class="timeline-container">
         <div class="timeline-wrapper">
           <div class="timeline-item left">

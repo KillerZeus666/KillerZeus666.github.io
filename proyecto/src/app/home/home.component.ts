@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LanguageService } from '../services/language.service';
+import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
 
 interface EducationItem {
   year: string;
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     hobbies: []
   };
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService, private elRef: ElementRef) {}
 
   ngOnInit() {
     this.languageSubscription = this.languageService.language$.subscribe(lang => {
@@ -65,6 +65,33 @@ export class HomeComponent implements OnInit, OnDestroy {
       hobbies: '66.66%',
     };
     return positions[this.activeTab] || '0%';
+  }
+
+  setTab(tab: 'personal' | 'education' | 'hobbies') {
+    this.activeTab = tab;
+    if (tab === 'education') {
+      this.observeTimelineCards();
+    }
+  }
+
+  observeTimelineCards() {
+    setTimeout(() => {
+      const cards = this.elRef.nativeElement.querySelectorAll('.timeline-content');
+
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      cards.forEach((card: Element) => observer.observe(card));
+    }, 50); // pequeño delay para esperar render
   }
 
   updateTexts(lang: string) {
