@@ -10,34 +10,19 @@
     </dotlottie-player>
   </div>
 
-
   <div class="home-right">
     <h2 class="section-title">
-      <span class="name1">Sobre</span> <span class="name2"> mí</span>
+      <span class="name1">Sobre </span> <span class="name2">mí...</span>
     </h2>
 
     <div class="tab-bar">
-      <div
-        class="tab"
-        [class.active]="activeTab === 'personal'"
-        (click)="activeTab = 'personal'">
-        Información Personal
-      </div>
-      <div
-        class="tab"
-        [class.active]="activeTab === 'education'"
-        (click)="activeTab = 'education'">
-        Educación y experiencia
-      </div>
-      <div
-        class="tab"
-        [class.active]="activeTab === 'hobbies'"
-        (click)="activeTab = 'hobbies'">
-        Gustos
-      </div>
+      <div class="tab" [class.active]="activeTab === 'personal'" (click)="activeTab = 'personal'">Información Personal</div>
+      <div class="tab" [class.active]="activeTab === 'education'" (click)="activeTab = 'education'">Educación y experiencia</div>
+      <div class="tab" [class.active]="activeTab === 'hobbies'" (click)="activeTab = 'hobbies'">Gustos</div>
       <div class="indicator" [style.left]="getIndicatorPosition()"></div>
     </div>
 
+    <!-- PERSONAL -->
     <div *ngIf="activeTab === 'personal'" class="tab-content">
       <div class="info-card"><strong>Nombre:</strong> Katheryn Sofia Guasca</div>
       <div class="info-card"><strong>Fecha de nacimiento:</strong> 26 de marzo de 2006</div>
@@ -46,116 +31,96 @@
       <div class="info-card"><strong>Teléfono:</strong> 301 3442915</div>
     </div>
 
-  <div *ngIf="activeTab === 'education'" class="tab-content">
-  <section id="experiencia">
-    <h2 class="timeline-section-title">Experiencia Laboral</h2>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2023 - 2024</div>
-        <div class="timeline-title">Ex Miembro del Semillero de Investigación IEEE RAS Javeriana</div>
-        <div class="timeline-description">
-          <ul>
-            <li>Participación en proyectos de robótica y automatización.</li>
-            <li>Investigación en tecnologías emergentes aplicadas a sistemas autónomos.</li>
-          </ul>
+    <!-- EDUCACIÓN -->
+    <div *ngIf="activeTab === 'education'" class="tab-content">
+     <h2 class="timeline-section-title">Experiencia Laboral</h2>
+      <section class="timeline-container">
+        <div class="timeline-wrapper">
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2023 - 2024</div>
+              <div class="timeline-title">Ex Miembro IEEE RAS Javeriana</div>
+              <div class="timeline-description">
+                <ul>
+                  <li>Proyectos de robótica y automatización.</li>
+                  <li>Investigación en sistemas autónomos.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2024 - Actual</div>
+              <div class="timeline-title">Miembro VCloud Javeriana</div>
+              <div class="timeline-description">
+                <ul>
+                  <li>Computación en la nube.</li>
+                  <li>Entornos virtualizados.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2024 - Actual</div>
-        <div class="timeline-title">Miembro del Semillero de Virtualización y Computación en la Nube (VCloud Javeriana)</div>
-        <div class="timeline-description">
-          <ul>
-            <li>Exploración de arquitecturas de computación en la nube.</li>
-            <li>Implementación de entornos virtualizados para optimización de recursos.</li>
-          </ul>
+      <h2 class="timeline-section-title">Formación Académica</h2>
+
+      <section class="timeline-container">
+        <div class="timeline-wrapper">
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2008 - 2022</div>
+              <div class="timeline-title">Bachillerato Académico</div>
+              <div class="timeline-description">Colegio Bilingüe Ciudad Montes</div>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2017 - 2020</div>
+              <div class="timeline-title">Inglés (Nivel B2)</div>
+              <div class="timeline-description">Instituto Colombo Americano</div>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2020 - 2022</div>
+              <div class="timeline-title">Francés (Nivel B2)</div>
+              <div class="timeline-description">Academia de Idiomas Smart</div>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2021 - 2023</div>
+              <div class="timeline-title">Técnico en Redes</div>
+              <div class="timeline-description">Centro Andino de Estudios Técnicos</div>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2023 - Actualidad</div>
+              <div class="timeline-title">Ingeniería de Sistemas</div>
+              <div class="timeline-description">Pontificia Universidad Javeriana</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="educacion">
-    <h2 class="timeline-section-title">Formación Académica</h2>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2008 - 2022</div>
-        <div class="timeline-title">Bachillerato Académico</div>
-        <div class="timeline-description">Colegio Bilingüe Ciudad Montes</div>
-      </div>
+      </section>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2017 - 2020</div>
-        <div class="timeline-title">Certificación en Inglés (Nivel B2)</div>
-        <div class="timeline-description">Instituto Colombo Americano</div>
-      </div>
+    <!-- HOBBIES -->
+    <div *ngIf="activeTab === 'hobbies'" class="tab-content hobbies-grid">
+      <div class="hobby-card"><div class="hobby-icon">🎬</div><div class="hobby-title">Ver series</div></div>
+      <div class="hobby-card"><div class="hobby-icon">🚴‍♀️</div><div class="hobby-title">Montar bicicleta</div></div>
+      <div class="hobby-card"><div class="hobby-icon">🎧</div><div class="hobby-title">Escuchar música</div></div>
+      <div class="hobby-card"><div class="hobby-icon">🎮</div><div class="hobby-title">Jugar videojuegos</div></div>
+      <div class="hobby-card"><div class="hobby-icon">🚶‍♀️</div><div class="hobby-title">Salir a caminar</div></div>
+      <div class="hobby-card"><div class="hobby-icon">🏓</div><div class="hobby-title">Jugar tenis de mesa</div></div>
     </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2020 - 2022</div>
-        <div class="timeline-title">Certificación en Francés (Nivel B2)</div>
-        <div class="timeline-description">Academia de Idiomas Smart</div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2021 - 2023</div>
-        <div class="timeline-title">Técnico en Redes y Telecomunicaciones</div>
-        <div class="timeline-description">Centro Andino de Estudios Técnicos</div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-year">2023 - Actualidad</div>
-        <div class="timeline-title">Ingeniería de Sistemas</div>
-        <div class="timeline-description">Pontificia Universidad Javeriana</div>
-      </div>
-    </div>
-  </section>
-</div>
-
-
-   <div *ngIf="activeTab === 'hobbies'" class="tab-content hobbies-grid">
-  <div class="hobby-card">
-    <div class="hobby-icon">🎬</div>
-    <div class="hobby-title">Ver series</div>
-  </div>
-  <div class="hobby-card">
-    <div class="hobby-icon">🚴‍♀️</div>
-    <div class="hobby-title">Montar bicicleta</div>
-  </div>
-  <div class="hobby-card">
-    <div class="hobby-icon">🎧</div>
-    <div class="hobby-title">Escuchar música</div>
-  </div>
-    <div class="hobby-card">
-      <div class="hobby-icon">🎮</div>
-      <div class="hobby-title">Jugar videojuegos</div>
-    </div>
-    <div class="hobby-card">
-      <div class="hobby-icon">🚶‍♀️</div>
-      <div class="hobby-title">Salir a caminar</div>
-    </div>
-    <div class="hobby-card">
-      <div class="hobby-icon">🏓</div>
-      <div class="hobby-title">Jugar tenis de mesa</div>
-    </div>
-  </div>
-
   </div>
 </div>
