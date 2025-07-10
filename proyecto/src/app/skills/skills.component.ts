@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, Renderer2, OnDestroy } from '@angular/core';
 import { LanguageService } from '../services/language.service';
 import { Subscription } from 'rxjs';
 
@@ -7,9 +7,11 @@ import { Subscription } from 'rxjs';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css']
 })
-export class SkillsComponent implements OnInit, OnDestroy {
+export class SkillsComponent implements AfterViewInit, OnDestroy {
   language: string = 'es';
   languageSubscription!: Subscription;
+  observer!: IntersectionObserver;
+
 
   skills = [
     {
@@ -56,7 +58,22 @@ export class SkillsComponent implements OnInit, OnDestroy {
     softSkills: [] as { title: string; description: string; icon: string }[]
   };
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService, private elRef: ElementRef, private renderer: Renderer2) {}
+
+
+    ngAfterViewInit(): void {
+      this.observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.renderer.addClass(entry.target, 'animate');
+            this.observer.unobserve(entry.target); // Solo animar una vez
+          }
+        });
+      }, { threshold: 0.3 });
+
+      const elements = this.elRef.nativeElement.querySelectorAll('.progress-fill');
+      elements.forEach((el: Element) => this.observer.observe(el));
+    }
 
   ngOnInit(): void {
     this.languageSubscription = this.languageService.language$.subscribe(lang => {

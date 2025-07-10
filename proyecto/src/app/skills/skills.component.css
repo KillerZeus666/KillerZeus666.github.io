@@ -94,8 +94,13 @@
   padding-right: 0.5rem;
   color: #fff;
   border-radius: 20px;
-  animation: growBar 2s ease forwards;
   width: 0;
+  transition: none;
+
+}
+
+.progress-fill.animate {
+  animation: growBar 2s ease forwards;
 }
 
 .progress-text {
